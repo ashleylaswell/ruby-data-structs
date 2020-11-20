@@ -79,3 +79,6 @@ class Tree
 
 end
 
+tree = Tree.new
+
+print tree.pretty_print
