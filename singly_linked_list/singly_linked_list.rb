@@ -13,7 +13,7 @@ class SinglyLinkedList
 
 	def append(value)
 		if @head
-			tail.next = Node.new(value)
+			find_tail.next = Node.new(value)
 		else
 			@head = Node.new(value)
 		end
@@ -31,11 +31,11 @@ class SinglyLinkedList
 		size
 	end
 
-	def head
+	def find_head
 		@head
 	end
 
-	def tail
+	def find_tail
 		node = @head
 
 		return node if !node.next
@@ -51,7 +51,9 @@ class SinglyLinkedList
 	end
 
 	def pop
-
+		tail = find_tail.value
+		delete(tail)
+		tail
 	end
 
 	def contains?(value)
@@ -134,6 +136,7 @@ list.prepend(5)
 list.append_after(10, 15)
 list.append_after(20, 25)
 
+puts list.pop
 print list.print
-puts list.at(0)
 
+#puts list.size
