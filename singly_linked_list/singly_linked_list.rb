@@ -43,7 +43,11 @@ class SinglyLinkedList
 	end
 
 	def at(index)
-
+		i = 0
+		self.each { |e|
+			return e if i == index
+			i += 1
+		}
 	end
 
 	def pop
@@ -130,5 +134,6 @@ list.prepend(5)
 list.append_after(10, 15)
 list.append_after(20, 25)
 
-puts list.print
-puts list.size
+print list.print
+puts list.at(0)
+
