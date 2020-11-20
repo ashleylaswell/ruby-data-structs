@@ -25,6 +25,16 @@ class SinglyLinkedList
 		@head = node
 	end
 
+	def delete(value)
+		if @head.value == value
+			@head = @head.next
+			return
+		end
+
+		node = find_before(value)
+		node.next = node.next.next
+	end
+
 	def size
 		size = 0
 		each { size += 1 }
@@ -82,16 +92,6 @@ class SinglyLinkedList
 		node.next.next = old_next
 	end
 
-	def delete(value)
-		if @head.value == value
-			@head = @head.next
-			return
-		end
-
-		node = find_before(value)
-		node.next = node.next.next
-	end
-
 	def find_before(value)
 		node = @head
 
@@ -138,6 +138,6 @@ list.append_after(10, 15)
 list.append_after(20, 25)
 
 puts list.contains?(10)
-#print list.print
+print list.print
 
-#puts list.size
+puts list.size
