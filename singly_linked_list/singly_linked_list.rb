@@ -12,7 +12,9 @@ class SinglyLinkedList
 	end
 
 	def prepend(value)
-
+		node = Node.new(value)
+		node.next = @head
+		@head = node
 	end
 
 	def size
@@ -113,8 +115,9 @@ list = SinglyLinkedList.new
 list.append(10)
 list.append(20)
 list.append(30)
+list.prepend(5)
 
 list.append_after(10, 15)
 list.append_after(20, 25)
 
-puts list.head
+puts list.print
