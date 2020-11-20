@@ -44,8 +44,8 @@ class SinglyLinkedList
 
 	def at(index)
 		i = 0
-		self.each { |e|
-			return e if i == index
+		self.each { |node|
+			return node if i == index
 			i += 1
 		}
 	end
