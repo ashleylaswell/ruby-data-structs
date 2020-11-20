@@ -7,7 +7,7 @@ class Node
 		data <=> other.data
 	end
 
-	def initialize(data, left = nil, right = nil))
+	def initialize(data, left = nil, right = nil)
 		@data = data
 		@left = left
 		@right = right
@@ -23,8 +23,17 @@ class Tree
 		@root = build_tree(array)
 	end
 
-	def build_tree
+	def build_tree(array)
+		return nil if array.empty?
 
+		result = array.sort.uniq
+		middle = result.length / 2
+
+		root = Node.new(result[middle])
+		root.left = build_tree(result[0...middle])
+		root.right = build_tree(result[middle + 1..-1])
+
+		return root
 	end
 
 	def insert
@@ -79,6 +88,7 @@ class Tree
 
 end
 
-tree = Tree.new
+array = [1, 2]
+tree = Tree.new(array)
 
 print tree.pretty_print
