@@ -5,17 +5,21 @@ class SinglyLinkedList
 
 	def append(value)
 		if @head
-			find_tail.next = Node.new(value)
+			tail.next = Node.new(value)
 		else
 			@head = Node.new(value)
 		end
 	end
 
-	def find_tail
+	def tail
 		node = @head
 
 		return node if !node.next
 		return node if !node.next while (node = node.next)
+	end
+
+	def head
+		@head
 	end
 
 	def append_after(target, value)
@@ -93,4 +97,4 @@ list.append(30)
 list.append_after(10, 15)
 list.append_after(20, 25)
 
-list.print
+puts list.head
