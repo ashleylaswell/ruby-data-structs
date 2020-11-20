@@ -3,6 +3,14 @@ class SinglyLinkedList
 		@head = nil
 	end
 
+	def each
+		node = @head
+		until node.nil?
+			yield node
+			node = node.next
+		end
+	end
+
 	def append(value)
 		if @head
 			tail.next = Node.new(value)
@@ -18,7 +26,9 @@ class SinglyLinkedList
 	end
 
 	def size
-
+		size = 0
+		each { size += 1 }
+		size
 	end
 
 	def head
@@ -121,3 +131,4 @@ list.append_after(10, 15)
 list.append_after(20, 25)
 
 puts list.print
+puts list.size
