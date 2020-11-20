@@ -123,7 +123,7 @@ class Node
 	end
 
 	def to_s
-		"Node with value #{@value}"
+		"#{@value}"
 	end
 end
 
