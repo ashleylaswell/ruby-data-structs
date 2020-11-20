@@ -11,6 +11,18 @@ class SinglyLinkedList
 		end
 	end
 
+	def prepend(value)
+
+	end
+
+	def size
+
+	end
+
+	def head
+		@head
+	end
+
 	def tail
 		node = @head
 
@@ -18,18 +30,16 @@ class SinglyLinkedList
 		return node if !node.next while (node = node.next)
 	end
 
-	def head
-		@head
+	def at(index)
+
 	end
 
-	def append_after(target, value)
-		node = find(target)
+	def pop
 
-		return unless node
+	end
 
-		old_next = node.next
-		node.next = Node.new(value)
-		node.next.next = old_next
+	def contains?(value)
+
 	end
 
 	def find(value)
@@ -41,6 +51,16 @@ class SinglyLinkedList
 		while (node = node.next)
 			return node if node.value == value
 		end
+	end
+
+	def append_after(target, value)
+		node = find(target)
+
+		return unless node
+
+		old_next = node.next
+		node.next = Node.new(value)
+		node.next.next = old_next
 	end
 
 	def delete(value)
