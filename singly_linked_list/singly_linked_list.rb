@@ -57,7 +57,8 @@ class SinglyLinkedList
 	end
 
 	def contains?(value)
-
+		return false if find(value).nil?
+		true
 	end
 
 	def find(value)
@@ -136,7 +137,7 @@ list.prepend(5)
 list.append_after(10, 15)
 list.append_after(20, 25)
 
-puts list.pop
-print list.print
+puts list.contains?(10)
+#print list.print
 
 #puts list.size
