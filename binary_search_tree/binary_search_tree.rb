@@ -88,7 +88,7 @@ class Tree
 
 end
 
-array = [1, 2]
+array = [1, 2, 9, 6, 4, 27, -6]
 tree = Tree.new(array)
 
 print tree.pretty_print
