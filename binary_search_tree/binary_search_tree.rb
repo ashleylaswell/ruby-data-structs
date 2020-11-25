@@ -1,20 +1,20 @@
 class Node
 	include Comparable
 	attr_accessor :left, :right
-	attr_reader :data
+	attr_reader :value
 
 	def <=>(other)
-		data <=> other.data
+		value <=> other.value
 	end
 
-	def initialize(data, left = nil, right = nil)
-		@data = data
+	def initialize(value, left = nil, right = nil)
+		@value = value
 		@left = left
 		@right = right
 	end
 
 	def to_s
-		"#{@data}"
+		"#{@value}"
 	end
 end
 
@@ -37,7 +37,7 @@ class Tree
 	end
 
 	def insert
-
+		
 	end
 
 	def delete
@@ -82,7 +82,7 @@ class Tree
 
 	def pretty_print(node = @root, prefix = '', is_left = true)
   	pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
-  	puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
+  	puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.value}"
   	pretty_print(node.left, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left
 	end
 
