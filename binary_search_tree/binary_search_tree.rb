@@ -36,8 +36,22 @@ class Tree
 		return root
 	end
 
-	def insert
-		
+	def insert(value)
+		new_node = Node.new(value)
+
+		temp = @root
+
+		loop do
+			break if new_node == temp
+
+			if new_node > temp
+				(temp.right = new_node; break) if temp.right.nil?
+				temp = temp.right
+			else
+				(temp.left = new_node; break) if temp.left.nil?
+				temp = temp.left
+			end
+		end
 	end
 
 	def delete
@@ -90,5 +104,6 @@ end
 
 array = [1, 2, 9, 6, 4, 27, -6]
 tree = Tree.new(array)
+tree.insert(1)
 
 print tree.pretty_print
