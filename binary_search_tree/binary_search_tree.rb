@@ -38,7 +38,6 @@ class Tree
 
 	def insert(value)
 		new_node = Node.new(value)
-
 		temp = @root
 
 		loop do
@@ -104,6 +103,6 @@ end
 
 array = [1, 2, 9, 6, 4, 27, -6]
 tree = Tree.new(array)
-tree.insert(1)
+tree.insert(-7)
 
 print tree.pretty_print
