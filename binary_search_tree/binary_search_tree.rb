@@ -3,9 +3,9 @@ class Node
 	attr_accessor :left, :right
 	attr_reader :value
 
-	def <=>(other)
-		value <=> other.value
-	end
+	#def <=>(other)
+	#	value <=> other.value
+	#end
 
 	def initialize(value, left = nil, right = nil)
 		@value = value
@@ -36,19 +36,20 @@ class Tree
 		return root
 	end
 
-	def insert(value)
-		new_node = Node.new(value)
-		temp = @root
-
-		loop do
-			break if new_node == temp
-
-			if new_node > temp
-				(temp.right = new_node; break) if temp.right.nil?
-				temp = temp.right
+	def insert(value, node = @root)
+		if value > node.value
+			if node.right != nil
+				node = node.right
+				insert(value, node)
 			else
-				(temp.left = new_node; break) if temp.left.nil?
-				temp = temp.left
+				node.right = Node.new(value)
+			end
+		elsif value < node.value
+			if node.left != nil
+				node = node.left
+				insert(value, node)
+			else
+				node.left = Node.new(value)
 			end
 		end
 	end
