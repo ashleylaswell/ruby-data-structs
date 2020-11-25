@@ -26,12 +26,12 @@ class Tree
 	def build_tree(array)
 		return nil if array.empty?
 
-		result = array.sort.uniq
-		middle = result.length / 2
+		sorted_array = array.sort.uniq
+		middle = sorted_array.length / 2
 
-		root = Node.new(result[middle])
-		root.left = build_tree(result[0...middle])
-		root.right = build_tree(result[middle + 1..-1])
+		root = Node.new(sorted_array[middle])
+		root.left = build_tree(sorted_array[0...middle])
+		root.right = build_tree(sorted_array[middle + 1..-1])
 
 		return root
 	end
